@@ -31,6 +31,9 @@ void startCurses() {
 
 int main(){
     startCurses();
+    start_color();
+    init_pair(1, COLOR_GREEN, COLOR_BLACK);
+
     //int playerx = 3, playery = 10;
     Player player;
     player.x = 3;
@@ -50,7 +53,7 @@ int main(){
         drawMap("1");
         
         //mvaddch(playery, playerx, '@');
-        mvaddch(player.y, player.x, '@');
+        mvaddch(player.y, player.x, '@' | COLOR_PAIR(1));
 
         char input = getch();
 
