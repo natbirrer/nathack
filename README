@@ -1,0 +1,7 @@
+This is a roguelike game similar to Nethack written in C++, and based on all of my favorite genres of fantasy.
+
+TO DO:
+------
+- set up git repo
+- make header file for classes
+- make classes for: main character, monster, wall, floor?, objects
