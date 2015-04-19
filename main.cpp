@@ -33,8 +33,6 @@ int main(){
 
     while(true) {
         drawMap("1");
-        getch();
-        break;
         
         mvaddch(playery, playerx+1, '@');
 
