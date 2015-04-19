@@ -5,8 +5,12 @@
 #include <ncurses.h>
 using namespace std;
 
+// constants (maybe reorganize later/make not global?)
+//const int MAP_WIDTH = 80;
+//const int MAP_HEIGHT = 20;
+
 // functions (maybe move to a header at some point)
-bool isPassable(int mapx, int mapy, char map[][81]);
+bool isPassable(int mapx, int mapy, char map[][MAP_WIDTH+1]);
 
 // curses boilerplate
 bool curses_started = false;
@@ -45,10 +49,10 @@ int main(){
 
     // Read map from file (maybe change this at some point..)
     string mapname = "maps/map1.txt";
-    char map[21][81];
+    char map[MAP_HEIGHT+1][MAP_WIDTH+1];
     int row = 0;
     ifstream mapstream(mapname);
-    while(mapstream.getline(map[row], 81)) {
+    while(mapstream.getline(map[row], MAP_WIDTH+1)) {
         ++row;
     }
 
@@ -106,7 +110,7 @@ int main(){
     endCurses();
 }
 
-bool isPassable(int mapx, int mapy, char map[][81]) {
+bool isPassable(int mapx, int mapy, char map[][MAP_WIDTH+1]) {
     if(mapx < 0 || mapx >= 80 || mapy < 0 || mapy >= 20) return false;
     int tileType = map[mapy][mapx];
     if(tileType == '.') return true;

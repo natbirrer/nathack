@@ -4,15 +4,18 @@
 #include <ncurses.h>
 using namespace std;
 
+// constants (maybe reorganize later/make not global?)
+const int MAP_WIDTH = 80;
+const int MAP_HEIGHT = 20;
 
 // Map fetching and drawing function
 void drawMap(string number) {
     // Fetch
     string mapname = "maps/map" + number + ".txt";
-    char map[21][81];
+    char map[MAP_HEIGHT+1][MAP_WIDTH+1];
     int row = 0;
     ifstream mapstream(mapname);
-    while(mapstream.getline(map[row], 81)) {
+    while(mapstream.getline(map[row], MAP_WIDTH+1)) {
         ++row;
     }
     
@@ -21,8 +24,8 @@ void drawMap(string number) {
     init_pair(3, COLOR_YELLOW, COLOR_BLACK);
 
     // Draw
-    for(int y=0; y<20; y++) {
-        for(int x=0; x<80; x++) {
+    for(int y=0; y<MAP_HEIGHT; y++) {
+        for(int x=0; x<MAP_WIDTH; x++) {
 
             char c = map[y][x];
             switch(c) {
