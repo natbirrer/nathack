@@ -23,18 +23,15 @@ using namespace std;
 //class Door {
 //};
 
-char getMap(string number) {
-    string mapname = "map" + number + ".txt";
+
+void drawMap(string number) {
+    string mapname = "maps/map" + number + ".txt";
     char map[20][80];
     int row = 0;
     ifstream mapstream(mapname);
     while(mapstream.getline(map[row], 80)) {
         ++row;
     }
-    return map;
-}
-
-void drawMap(char map) {
     for(int y=0; y<20; y++) {
         for(int x=0; x<80; x++) {
             mvaddch(y, x, map[y][x]);
