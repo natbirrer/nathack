@@ -5,6 +5,8 @@
 #include <ncurses.h>
 using namespace std;
 
+bool isPassable(int mapx, int mapy, char map[][81]);
+
 // curses boilerplate
 bool curses_started = false;
 
@@ -54,24 +56,27 @@ int main(){
 
         switch(input) {
             case 'h':
-                //playerx--;
-                player.x--;
+                if(isPassable(player.x-1, player.y, map)) player.x--;
                 break;
             case 'l':
-                //playerx++;
-                player.x++;
+                if(isPassable(player.x+1, player.y, map)) player.x++;
                 break;
             case 'j':
-                //playery++;
-                player.y++;
+                if(isPassable(player.x, player.y+1, map)) player.y++;
                 break;
             case 'k':
-                //playery--;
-                player.y--;
+                if(isPassable(player.x, player.y-1, map)) player.y--;
                 break;
             case 'q':
                 return 0;
         }
     }
     endCurses();
+}
+
+bool isPassable(int mapx, int mapy, char map[][81]) {
+    if(mapx < 0 || mapx >= 80 || mapy < 0 || mapy >= 20) return false;
+    int tileType = map[mapy][mapx];
+    if(tileType == '.') return true;
+    return false;
 }
