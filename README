@@ -3,9 +3,8 @@ This is a roguelike game similar to Nethack written in C++, and based on all of 
 TO DO:
 ------
 + set up git repo
-- make header file for classes
-- make classes for: main character, monster, wall, floor?, objects
 + implement ncurses boilerplate
 + make a way to import maps (from text files?)
 + make a draw map function
-- make movement functional
++ make movement functional
+- fix minor cursor placement issue
