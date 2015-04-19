@@ -29,28 +29,48 @@ void startCurses() {
 
 int main(){
     startCurses();
-    int playerx = 20, playery = 20;
+    //int playerx = 3, playery = 10;
+    Player player;
+    player.x = 3;
+    player.y = 10;
 
+    // Read map from file (maybe change this at some point..)
+    string mapname = "maps/map1.txt";
+    char map[21][81];
+    int row = 0;
+    ifstream mapstream(mapname);
+    while(mapstream.getline(map[row], 81)) {
+        ++row;
+    }
+
+    // Main game loop
     while(true) {
         drawMap("1");
         
-        mvaddch(playery, playerx+1, '@');
+        //mvaddch(playery, playerx, '@');
+        mvaddch(player.y, player.x, '@');
 
         char input = getch();
 
         switch(input) {
             case 'h':
-                playerx--;
+                //playerx--;
+                player.x--;
                 break;
             case 'l':
-                playerx++;
+                //playerx++;
+                player.x++;
                 break;
             case 'j':
-                playery++;
+                //playery++;
+                player.y++;
                 break;
             case 'k':
-                playery--;
+                //playery--;
+                player.y--;
                 break;
+            case 'q':
+                return 0;
         }
     }
     endCurses();
