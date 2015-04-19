@@ -4,6 +4,7 @@
 #include <ncurses.h>
 using namespace std;
 
+
 // Map fetching and drawing function
 void drawMap(string number) {
     // Fetch
@@ -15,10 +16,31 @@ void drawMap(string number) {
         ++row;
     }
     
+    // Define color pairs for terrain
+    init_pair(2, COLOR_GREEN, COLOR_BLACK);
+    init_pair(3, COLOR_YELLOW, COLOR_BLACK);
+
     // Draw
     for(int y=0; y<20; y++) {
         for(int x=0; x<80; x++) {
-            mvaddch(y, x, map[y][x]);
+
+            char c = map[y][x];
+            switch(c) {
+                case '.':
+                case 'T':
+                    mvaddch(y,x,c | COLOR_PAIR(2));
+                    break;
+                case 'o':
+                    mvaddch(y,x,'.');
+                    break;
+                case '#':
+                    mvaddch(y,x,c);
+                    break;
+                case '+':
+                case '/':
+                    mvaddch(y,x,c | COLOR_PAIR(3));
+                    break;
+            }
         }
     }
 }

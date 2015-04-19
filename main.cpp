@@ -110,5 +110,7 @@ bool isPassable(int mapx, int mapy, char map[][81]) {
     if(mapx < 0 || mapx >= 80 || mapy < 0 || mapy >= 20) return false;
     int tileType = map[mapy][mapx];
     if(tileType == '.') return true;
+    else if(tileType == '/') return true;
+    else if(tileType == 'o') return true;
     return false;
 }

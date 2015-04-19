@@ -13,3 +13,4 @@ TO DO:
 - map is read in two places - maybe consolidate this/make it nicer
 - add more maps
 - add a way to go from map to map
+- make map dimensions constants
