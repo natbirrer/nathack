@@ -13,7 +13,7 @@ class Character {
     double getHealth() { return health; }
     void setRace(string r) { race = r; }
     string getRace() { return race; }
-}
+};
 
 // Main character class.
 class MainCharacter {
@@ -23,4 +23,4 @@ class MainCharacter {
 
     void setTrade(string t) { trade = t; }
     string getTrade() { return trade; }
-}
+};
