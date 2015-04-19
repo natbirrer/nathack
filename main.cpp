@@ -32,7 +32,8 @@ int main(){
     int playerx = 20, playery = 20;
 
     while(true) {
-        erase();
+        drawMap("1");
+        
         mvaddch(playery, playerx+1, '@');
 
         char input = getch();
