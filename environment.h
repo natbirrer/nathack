@@ -26,10 +26,10 @@ using namespace std;
 
 void drawMap(string number) {
     string mapname = "maps/map" + number + ".txt";
-    char map[20][80];
+    char map[21][81];
     int row = 0;
     ifstream mapstream(mapname);
-    while(mapstream.getline(map[row], 80)) {
+    while(mapstream.getline(map[row], 81)) {
         ++row;
     }
     for(int y=0; y<20; y++) {
