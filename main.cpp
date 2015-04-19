@@ -29,6 +29,28 @@ void startCurses() {
 
 int main(){
     startCurses();
-    getch();
+    int playerx = 20, playery = 20;
+
+    while(true) {
+        erase();
+        mvaddch(playery, playerx+1, '@');
+
+        char input = getch();
+
+        switch(input) {
+            case 'h':
+                playerx--;
+                break;
+            case 'l':
+                playerx++;
+                break;
+            case 'j':
+                playery++;
+                break;
+            case 'k':
+                playery--;
+                break;
+        }
+    }
     endCurses();
 }
