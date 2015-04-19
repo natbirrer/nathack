@@ -28,4 +28,7 @@ void startCurses() {
 }
 
 int main(){
+    startCurses();
+    getch();
+    endCurses();
 }
