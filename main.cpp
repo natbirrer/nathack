@@ -33,10 +33,10 @@ void startCurses() {
 int main(){
     startCurses();
     start_color();
-    curs_set(0);
+    curs_set(0); // Hide cursor
     
     // Initialize colors
-    init_pair(1, COLOR_GREEN, COLOR_WHITE);
+    init_pair(1, COLOR_BLACK, COLOR_WHITE);
 
     // Initialize player and (temporary) start position
     Player player;
@@ -60,21 +60,47 @@ int main(){
 
         char input = getch();
 
+        int dx;
+        int dy;
         switch(input) {
             case 'h':
-                if(isPassable(player.x-1, player.y, map)) player.x--;
+                dx = -1;
+                dy = 0;
                 break;
             case 'l':
-                if(isPassable(player.x+1, player.y, map)) player.x++;
+                dx = 1;
+                dy = 0;
                 break;
             case 'j':
-                if(isPassable(player.x, player.y+1, map)) player.y++;
+                dx = 0;
+                dy = 1;
                 break;
             case 'k':
-                if(isPassable(player.x, player.y-1, map)) player.y--;
+                dx = 0;
+                dy = -1;
+                break;
+            case 'b':
+                dx = -1;
+                dy = 1;
+                break;
+            case 'n':
+                dx = 1;
+                dy = 1;
+                break;
+            case 'y':
+                dx = -1;
+                dy = -1;
+                break;
+            case 'u':
+                dx = 1;
+                dy = -1;
                 break;
             case 'q':
                 return 0;
+        }
+        if(isPassable(player.x+dx, player.y+dy, map)) {
+            player.x += dx;
+            player.y += dy;
         }
     }
     endCurses();
