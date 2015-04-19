@@ -33,9 +33,10 @@ void startCurses() {
 int main(){
     startCurses();
     start_color();
+    curs_set(0);
     
     // Initialize colors
-    init_pair(1, COLOR_GREEN, COLOR_BLACK);
+    init_pair(1, COLOR_GREEN, COLOR_WHITE);
 
     // Initialize player and (temporary) start position
     Player player;

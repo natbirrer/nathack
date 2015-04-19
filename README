@@ -7,7 +7,7 @@ TO DO:
 + make a way to import maps (from text files?)
 + make a draw map function
 + make movement functional
-- fix minor cursor placement issue
++ fix minor cursor placement issue
 + add color
 - add some menus at the beginning and some character attributes
 - map is read in two places - maybe consolidate this/make it nicer
