@@ -8,5 +8,8 @@ TO DO:
 + make a draw map function
 + make movement functional
 - fix minor cursor placement issue
-- add color
-- add some menus at the beginning and more character attributes
++ add color
+- add some menus at the beginning and some character attributes
+- map is read in two places - maybe consolidate this/make it nicer
+- add more maps
+- add a way to go from map to map

@@ -5,6 +5,7 @@
 #include <ncurses.h>
 using namespace std;
 
+// functions (maybe move to a header at some point)
 bool isPassable(int mapx, int mapy, char map[][81]);
 
 // curses boilerplate
@@ -32,9 +33,11 @@ void startCurses() {
 int main(){
     startCurses();
     start_color();
+    
+    // Initialize colors
     init_pair(1, COLOR_GREEN, COLOR_BLACK);
 
-    //int playerx = 3, playery = 10;
+    // Initialize player and (temporary) start position
     Player player;
     player.x = 3;
     player.y = 10;
@@ -52,7 +55,6 @@ int main(){
     while(true) {
         drawMap("1");
         
-        //mvaddch(playery, playerx, '@');
         mvaddch(player.y, player.x, '@' | COLOR_PAIR(1));
 
         char input = getch();
