@@ -1,3 +1,6 @@
+#ifndef CHARACTERS_H
+#define CHARACTERS_H
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -17,3 +20,5 @@ class Character {
 // Main character class.
 class Player: public Character {
 };
+
+#endif

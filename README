@@ -16,3 +16,11 @@ TO DO:
 + make map dimensions constants
 - make interface with environment in an object-oriented way
 - clean up and organize everything
+
+global: map size
+    environment.h: read map, environment object definitions
+        environment.cpp: environment object implementations
+    characters.h: character object definitions
+        characters.cpp: character object implementations
+        
+    process input in function in a header
