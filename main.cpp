@@ -63,6 +63,8 @@ int main(){
         mvaddch(player.y, player.x, '@' | COLOR_PAIR(1));
 
         char input = getch();
+        // replace all following code with a function call:
+        // process(input);
 
         int dx;
         int dy;
