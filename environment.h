@@ -8,8 +8,8 @@
 using namespace std;
 
 // constants (maybe reorganize later/make not global?)
-const int MAP_WIDTH = 80;
-const int MAP_HEIGHT = 20;
+//const int MAP_WIDTH = 80;
+//const int MAP_HEIGHT = 20;
 
 // Map fetching and drawing function
 void drawMap(string number) {
