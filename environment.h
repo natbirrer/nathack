@@ -17,7 +17,9 @@ void drawMap(string number) {
     string mapname = "maps/map" + number + ".txt";
     char map[MAP_HEIGHT+1][MAP_WIDTH+1];
     int row = 0;
-    ifstream mapstream(mapname);
+    const char* filename = mapname.c_str();
+    ifstream mapstream;
+    mapstream.open(filename);
     while(mapstream.getline(map[row], MAP_WIDTH+1)) {
         ++row;
     }
