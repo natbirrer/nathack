@@ -3,6 +3,7 @@
 #include "characters.h"
 #include "environment.h"
 #include <ncurses.h>
+#include "globals.h"
 using namespace std;
 
 // constants (maybe reorganize later/make not global?)
@@ -40,12 +41,12 @@ int main(){
     curs_set(0); // Hide cursor
     
     // Initialize colors
-    init_pair(1, COLOR_BLACK, COLOR_WHITE);
+    //init_pair(1, COLOR_BLACK, COLOR_WHITE);
+    //defineGlobalColors();
 
     // Initialize player and (temporary) start position
     Player player;
-    player.x = 3;
-    player.y = 10;
+    player.setPosition(3,10);
 
     // Read map from file (maybe change this at some point..)
     string mapname = "maps/map1.txt";
@@ -60,7 +61,8 @@ int main(){
     while(true) {
         drawMap("1");
         
-        mvaddch(player.y, player.x, '@' | COLOR_PAIR(1));
+        //mvaddch(player.y, player.x, '@' | COLOR_PAIR(1));
+        player.draw();
 
         char input = getch();
 
@@ -102,9 +104,8 @@ int main(){
             case 'q':
                 return 0;
         }
-        if(isPassable(player.x+dx, player.y+dy, map)) {
-            player.x += dx;
-            player.y += dy;
+        if(isPassable(player.getx()+dx, player.gety()+dy, map)) {
+            player.setPosition(player.getx() + dx, player.gety() + dy);
         }
     }
     endCurses();
