@@ -24,3 +24,7 @@ global: map size
         characters.cpp: character object implementations
         
     process input in function in a header
+
+NOTES:
+-----
+compile with "g++ -Wall -lncurses -std=c++11 main.cpp characters.cpp environment.cpp -o nathack"

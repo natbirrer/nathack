@@ -12,6 +12,7 @@ using namespace std;
 
 // functions (maybe move to a header at some point)
 bool isPassable(int mapx, int mapy, char map[][MAP_WIDTH+1]);
+string inputType(char input);
 
 // curses boilerplate
 bool curses_started = false;
@@ -118,4 +119,24 @@ bool isPassable(int mapx, int mapy, char map[][MAP_WIDTH+1]) {
     else if(tileType == '/') return true;
     else if(tileType == 'o') return true;
     return false;
+}
+
+// not sure if this will be useful...
+string inputType(char input) {
+    switch(input) {
+        case 'h':
+        case 'j':
+        case 'k':
+        case 'l':
+        case 'b':
+        case 'n':
+        case 'y':
+        case 'u':
+            return "move";
+        case 'o':
+        case 'r':
+            return "action";
+        default:
+            return "invalid";
+    }
 }
